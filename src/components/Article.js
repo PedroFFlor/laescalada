@@ -1,11 +1,12 @@
+import News from "./News";
 
-function Article(props) {
 
-    const { children } = props
-
+function Article() {
     return (
       <article className="article">
-        Article
+        <News>A partir de hoy sandwiches de gato</News>
+        <News>Lo dicen las encuestas</News>
+        <News>Ultimo mes de promo sarasa</News>
       </article>
     );
 }

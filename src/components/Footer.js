@@ -1,11 +1,8 @@
 
-function Footer(props) {
-
-    const { children } = props
-
+function Footer() {
     return (
       <footer className="footer">
-        Footer
+        Todos los derechos reservados sarasa sarasa sarasa.
       </footer>
     );
 }
