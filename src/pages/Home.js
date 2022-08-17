@@ -1,23 +1,52 @@
-
-import Article from "../components/Article";
-import Aside from "../components/Aside";
-import Footer from "../components/Footer";
-import Navigator from "../components/Navigator";
-import Slider from "../components/Slider";
+import React, { Fragment, useState } from "react";
+import BtnLimpiar from "../components/BtnLimpiar";
+import BtnContar from "../components/BtnContar";
+import Mostrar from "../components/Mostrar";
 
 
-function Home() {
-    return (
-      <>
-        <div className="main">
-          <Navigator/>
-          <Slider>Este children va a ser el titulo del slider, por param enviamos las imagenes</Slider>
-          <Article/>
-          <Aside/>
-        </div>
-        <Footer/>
-      </>
-    );
-}
-export default Home;
+const useContador = () =>{      //el "use"Contador es para indicar a react que es un hook, 
+                                                        //hacemos esta funcion para no repetir la logica del contador y las funciones
+  const [contador, setContador] = useState(0);       
+
+  const contar = () => {
+    setContador(contador + 2)
+  }
   
+  const limpiar = () => setContador(0)
+
+  return {      //devolvemos un objeto con 2 funciones y una variable
+    contador,
+    contar,
+    limpiar
+  }
+}
+
+export default function Home() {
+
+  const contKeki = useContador();
+  const contMari = useContador();
+  
+  return (
+    <Fragment>
+      <BtnContar contar={contKeki.contar} contador={contKeki.contador}>
+        Keki
+      </BtnContar><br />
+      <BtnLimpiar limpiar={contKeki.limpiar}>
+        Keki
+      </BtnLimpiar><br />
+      <Mostrar contador={contKeki.contador}>
+        Keki
+      </Mostrar><br />
+      <BtnContar contar={contMari.contar} contador={contMari.contador}>
+        Mari
+      </BtnContar><br />
+      <BtnLimpiar limpiar={contMari.limpiar}>
+        Mari
+      </BtnLimpiar><br />
+      <Mostrar contador={contMari.contador}>
+        Mari
+      </Mostrar><br />
+    </Fragment>
+  );
+} 
+
