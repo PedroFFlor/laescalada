@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 
-const BtnLimpiar = (props) => {
+const BtnLimpiar = ({limpiar}) => {
 
   return (
     <Fragment>
-      <button onClick={ props.limpiar }>Reiniciar</button><br />
+      <button onClick={ limpiar }>Reiniciar</button><br />
     </Fragment>
   );
 }

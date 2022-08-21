@@ -2,14 +2,15 @@ import React, { Fragment, useState } from "react";
 import BtnLimpiar from "../components/BtnLimpiar";
 import BtnContar from "../components/BtnContar";
 import Mostrar from "../components/Mostrar";
+import TestCrudPadre from "../components/TestCrudPadre";
+import TestRouter from "../components/TestRouter";
 
-
-const useContador = () =>{      //el "use"Contador es para indicar a react que es un hook, 
+const useContador = (valorInicial = 0) =>{      //el "use"Contador es para indicar a react que es un hook, ponemos que por default inicie en 0
                                                         //hacemos esta funcion para no repetir la logica del contador y las funciones
-  const [contador, setContador] = useState(0);       
+  const [contador, setContador] = useState(valorInicial);     //el valor inicial lo trae del parametro que pasamos al iniciar la constante  
 
   const contar = () => {
-    setContador(contador + 2)
+    setContador(contador + 1)
   }
   
   const limpiar = () => setContador(0)
@@ -23,12 +24,12 @@ const useContador = () =>{      //el "use"Contador es para indicar a react que e
 
 export default function Home() {
 
-  const contKeki = useContador();
-  const contMari = useContador();
+  const contKeki = useContador(20);
+  const contMari = useContador(50);
   
   return (
     <Fragment>
-      <BtnContar contar={contKeki.contar} contador={contKeki.contador}>
+      <BtnContar contar={contKeki.contar}>
         Keki
       </BtnContar><br />
       <BtnLimpiar limpiar={contKeki.limpiar}>
@@ -37,7 +38,7 @@ export default function Home() {
       <Mostrar contador={contKeki.contador}>
         Keki
       </Mostrar><br />
-      <BtnContar contar={contMari.contar} contador={contMari.contador}>
+      <BtnContar contar={contMari.contar}>
         Mari
       </BtnContar><br />
       <BtnLimpiar limpiar={contMari.limpiar}>
@@ -46,6 +47,12 @@ export default function Home() {
       <Mostrar contador={contMari.contador}>
         Mari
       </Mostrar><br />
+      <hr />
+      <hr />
+      <TestCrudPadre />
+      <hr />
+      <hr />
+      <TestRouter />
     </Fragment>
   );
 } 

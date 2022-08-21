@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 
-const Mostrar = (props) => {
+const Mostrar = ({contador, children}) => {
 
   return (
     <Fragment>
-      <p>El contador de { props.children } es: { props.contador }</p>   
+      <p>El contador de { children } es: { contador }</p>   
     </Fragment>
   );
 }

@@ -1,14 +1,10 @@
 import React, { Fragment } from "react";
 
-
-const BtnContar = (props)  => {
-
-  console.log(props)
+const BtnContar = ({contar})  => { //estamos desestructurando el objeto props para que sea mas legible el codigo
+  
   return (
     <Fragment>
-
-      <button onClick={ props.contar }>Contar</button><br />
-
+      <button onClick={ contar }>Contar</button><br />
     </Fragment>
   );
 }
